@@ -1,0 +1,522 @@
+---
+title: "ECON 3201 Assignment 1"
+author: "Firas Ayari"
+format: typst
+execute:
+  echo: true
+  warning: false
+---
+
+# Q1
+
+My personal ECON 3201 Quarto website can be accessed using the following link:
+
+**Website:** [PASTE GITHUB WEBSITE LINK HERE]
+
+The website contains a Home page with my name, credentials, and an About Me section, as well as a Blog page for my ECON 3201 assignments.
+
+# Q2
+
+Let $X = \{1,2,3,\ldots,12\}$ be uniformly distributed with
+
+$$
+f_X(x)=\frac{1}{12}.
+$$
+
+## (a)
+
+For a valid probability distribution, all probabilities must be non-negative and their sum must equal 1.
+
+$$
+\sum_{x=1}^{12} f_X(x)
+=
+\sum_{x=1}^{12}\frac{1}{12}
+=
+12\left(\frac{1}{12}\right)
+=
+1.
+$$
+
+Also,
+
+$$
+f_X(x)=\frac{1}{12}\geq0.
+$$
+
+Therefore, $f_X(x)$ is a valid probability distribution.
+
+## (b)
+
+The expected value is
+
+$$
+E(X)=\sum_{x=1}^{12}x f_X(x).
+$$
+
+Therefore,
+
+$$
+E(X)
+=
+\frac{1}{12}(1+2+3+\cdots+12)
+=
+\frac{78}{12}
+=
+\boxed{6.5}.
+$$
+
+## (c)
+
+First,
+
+$$
+E(X^2)
+=
+\frac{1}{12}\sum_{x=1}^{12}x^2
+=
+\frac{650}{12}.
+$$
+
+The variance is
+
+$$
+Var(X)=E(X^2)-[E(X)]^2.
+$$
+
+Thus,
+
+$$
+Var(X)
+=
+\frac{650}{12}-(6.5)^2
+=
+\boxed{\frac{143}{12}}
+\approx
+\boxed{11.9167}.
+$$
+
+# Q3
+
+Let
+
+$$
+X\sim N(4,5).
+$$
+
+Thus,
+
+$$
+\mu=4,\qquad \sigma^2=5,\qquad \sigma=\sqrt{5}.
+$$
+
+## (a)
+
+We want
+
+$$
+P(X\leq6).
+$$
+
+Standardizing,
+
+$$
+Z=\frac{6-4}{\sqrt{5}}
+=0.8944.
+$$
+
+Therefore,
+
+$$
+P(X\leq6)
+=
+P(Z\leq0.8944)
+\approx
+\boxed{0.8145}.
+$$
+
+## (b)
+
+Since 4 is the mean of the normal distribution,
+
+$$
+P(X>4)=\boxed{0.5}.
+$$
+
+## (c)
+
+We want
+
+$$
+P(-1\leq X<1).
+$$
+
+Standardizing both endpoints,
+
+$$
+P\left(
+\frac{-1-4}{\sqrt{5}}
+\leq Z <
+\frac{1-4}{\sqrt{5}}
+\right).
+$$
+
+Therefore,
+
+$$
+P(-2.2361\leq Z<-1.3416)
+\approx
+\boxed{0.0772}.
+$$
+
+# Q4
+
+Let
+
+$$
+Z\sim N(0,1).
+$$
+
+## (a)
+
+$$
+P(Z\leq0.83)
+=
+\Phi(0.83)
+\approx
+\boxed{0.7967}.
+$$
+
+## (b)
+
+By symmetry,
+
+$$
+P(-0.83\leq Z\leq0.83)
+=
+2\Phi(0.83)-1.
+$$
+
+Therefore,
+
+$$
+P(-0.83\leq Z\leq0.83)
+=
+2(0.7967)-1
+\approx
+\boxed{0.5935}.
+$$
+
+# Q5
+
+Let $X=\{1,2,\ldots,12\}$ with $f_X(x)=1/12$.
+
+## (a)
+
+The probability distribution function is plotted below.
+
+```{r}
+x <- 1:12
+fx <- rep(1/12, 12)
+
+plot(
+  x, fx,
+  type = "h",
+  lwd = 3,
+  xlab = "X",
+  ylab = "fX(x)",
+  main = "Probability Distribution of X"
+)
+
+points(x, fx, pch = 19)
+```
+
+## (b)
+
+The cumulative probability distribution is:
+
+```{r}
+Fx <- cumsum(fx)
+
+plot(
+  x, Fx,
+  type = "s",
+  xlab = "X",
+  ylab = "F(X)",
+  main = "Cumulative Distribution of X"
+)
+
+points(x, Fx, pch = 19)
+```
+
+## (c)
+
+The expected value is computed in R as follows:
+
+```{r}
+EX <- sum(x * fx)
+EX
+```
+
+Therefore,
+
+$$
+\boxed{E(X)=6.5}.
+$$
+
+## (d)
+
+The variance is:
+
+```{r}
+EX2 <- sum(x^2 * fx)
+variance <- EX2 - EX^2
+variance
+```
+
+Therefore,
+
+$$
+\boxed{Var(X)=11.9167}.
+$$
+
+# Q6
+
+The standard normal density is
+
+$$
+f(x)=\frac{e^{-x^2/2}}{\sqrt{2\pi}}.
+$$
+
+## (a)
+
+The function can be defined in R as:
+
+```{r}
+f <- function(x) {
+  exp(-(x^2)/2) / sqrt(2*pi)
+}
+```
+
+## (b)
+
+Integrating the function over $(-\infty,\infty)$:
+
+```{r}
+integrate(f, -Inf, Inf)$value
+```
+
+The result is
+
+$$
+\boxed{1}.
+$$
+
+Therefore, the total probability is equal to 1.
+
+## (c)
+
+The expected value is:
+
+```{r}
+EZ <- integrate(
+  function(x) x * f(x),
+  -Inf, Inf
+)$value
+
+EZ
+```
+
+Therefore,
+
+$$
+\boxed{E(Z)=0}.
+$$
+
+## (d)
+
+The variance is:
+
+```{r}
+EZ2 <- integrate(
+  function(x) x^2 * f(x),
+  -Inf, Inf
+)$value
+
+VarZ <- EZ2 - EZ^2
+VarZ
+```
+
+Therefore,
+
+$$
+\boxed{Var(Z)=1}.
+$$
+
+## (e)
+
+To calculate $P(Z\leq0.83)$:
+
+```{r}
+integrate(f, -Inf, 0.83)$value
+```
+
+Therefore,
+
+$$
+\boxed{P(Z\leq0.83)\approx0.7967}.
+$$
+
+## (f)
+
+To calculate $P(-0.83\leq Z\leq0.83)$:
+
+```{r}
+integrate(f, -0.83, 0.83)$value
+```
+
+Therefore,
+
+$$
+\boxed{P(-0.83\leq Z\leq0.83)\approx0.5935}.
+$$
+
+## (g)
+
+Using the `pnorm()` command:
+
+```{r}
+pnorm(0.83) - pnorm(-0.83)
+```
+
+The result is approximately
+
+$$
+\boxed{0.5935}.
+$$
+
+This is the same result obtained in part (f).
+
+# Q7
+
+The probability density function is
+
+$$
+f(x)=\frac{1}{9}x^2,\qquad 0<x<3.
+$$
+
+## (a)
+
+Define the function in R:
+
+```{r}
+prison_pdf <- function(x) {
+  (1/9) * x^2
+}
+```
+
+## (b)
+
+Integrate over $[0,3]$:
+
+```{r}
+integrate(prison_pdf, 0, 3)$value
+```
+
+The result is
+
+$$
+\boxed{1}.
+$$
+
+Therefore, the density integrates to 1.
+
+## (c)
+
+The expected prison sentence is:
+
+```{r}
+expected_sentence <- integrate(
+  function(x) x * prison_pdf(x),
+  0, 3
+)$value
+
+expected_sentence
+```
+
+Analytically,
+
+$$
+E(X)
+=
+\int_0^3x\left(\frac{x^2}{9}\right)dx
+=
+\frac{1}{9}\int_0^3x^3dx.
+$$
+
+Thus,
+
+$$
+E(X)
+=
+\frac{1}{9}
+\left[\frac{x^4}{4}\right]_0^3
+=
+\frac{81}{36}
+=
+\boxed{2.25}.
+$$
+
+Therefore, the expected prison sentence is **2.25 years**.
+
+# Q8
+
+## (a)
+
+The standard normal distribution and Student t distributions are plotted below.
+
+```{r}
+curve(
+  dnorm(x),
+  from = -5,
+  to = 5,
+  xlim = c(-5, 5),
+  ylab = "Density",
+  main = "Densities of t Distribution",
+  lty = 1
+)
+
+curve(
+  dt(x, df = 5),
+  from = -5,
+  to = 5,
+  col = 2,
+  add = TRUE
+)
+
+curve(
+  dt(x, df = 15),
+  from = -5,
+  to = 5,
+  col = 3,
+  add = TRUE
+)
+
+curve(
+  dt(x, df = 25),
+  from = -5,
+  to = 5,
+  col = 4,
+  add = TRUE
+)
+
+legend(
+  "topright",
+  c("N(0, 1)", "M=5", "M=15", "M=25"),
+  col = 1:4,
+  lty = c(1, 1, 1, 1)
+)
+```
+
+## (b)
+
+As the degrees of freedom increase, the Student t distribution becomes closer to the standard normal distribution. With fewer degrees of freedom, the t distribution has heavier tails. As the degrees of freedom increase, the difference between the t distribution and the standard normal distribution becomes smaller.
