@@ -3,7 +3,7 @@
     "path": "~/ECON3201/blog.qmd",
     "project_path": "blog.qmd",
     "type": "quarto_markdown",
-    "hash": "0",
+    "hash": "3441508996",
     "contents": "",
     "dirty": false,
     "created": 1791303575541.0,
@@ -17,16 +17,16 @@
         "Source": "Source",
         "docOutlineVisible": "1",
         "rmdVisualCollapsedChunks": "",
-        "cursorPosition": "1,0",
+        "cursorPosition": "4,0",
         "scrollLine": "0",
-        "rmdVisualModeLocation": "2:0"
+        "rmdVisualModeLocation": "60:0"
     },
     "folds": "",
-    "lastKnownWriteTime": 1791303627,
+    "lastKnownWriteTime": 1791307698,
     "encoding": "UTF-8",
     "collab_server": "",
     "source_window": "",
-    "last_content_update": 1791303627132,
+    "last_content_update": 1791307698788,
     "read_only": false,
     "read_only_alternatives": []
 }
