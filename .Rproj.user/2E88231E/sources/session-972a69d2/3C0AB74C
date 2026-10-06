@@ -3,7 +3,7 @@
     "path": "~/ECON3201/assignment1.qmd",
     "project_path": "assignment1.qmd",
     "type": "quarto_markdown",
-    "hash": "0",
+    "hash": "1815994602",
     "contents": "",
     "dirty": false,
     "created": 1791303878873.0,
@@ -17,16 +17,16 @@
         "Source": "Source",
         "docOutlineVisible": "1",
         "rmdVisualCollapsedChunks": "",
-        "cursorPosition": "18,0",
+        "cursorPosition": "13,13",
         "scrollLine": "0",
         "rmdVisualModeLocation": "69:0"
     },
     "folds": "",
-    "lastKnownWriteTime": 1791308474,
+    "lastKnownWriteTime": 1791310119,
     "encoding": "UTF-8",
     "collab_server": "",
     "source_window": "",
-    "last_content_update": 1791308474384,
+    "last_content_update": 1791310119542,
     "read_only": false,
     "read_only_alternatives": []
 }
